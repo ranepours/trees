@@ -94,7 +94,7 @@ class BinaryTree{
             );
         } return helper(this.root);
     }
-    
+
     maxSum(){
         let res = 0;
 
@@ -111,9 +111,21 @@ class BinaryTree{
     }
 
     nextLarger(lowerBound){
+        if(!this.root) return null;
 
-    }
-    areCousins(){
+        let queue = [this.root];
+        let closest = null;
 
+        while(queue.length){
+            let currNode = que.shift();
+            let currVal = currNode.val;
+            let higher = currVal > lowerBound;
+            let reassign = currVal < closest || closest === null;
+
+            if(higher && reassign) closest = currVal;
+
+            if(currNode.left) queue.push(currNode.left);
+            if(currNode.right) queue.push(currNode.right);
+        } return closest;
     }
 }
